@@ -2,8 +2,8 @@ type Room {
   id: ID! @id
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
-  Seat : [Seat]
-  Movie : Movie! @relation(name:"Room-Movie")
+  Seat : [Seat] @relation(name:"RoomSeat" ,link: INLINE)
+  Movie : Movie! @relation(name:"RoomMovie" ,link: INLINE)
   available: Boolean! @default(value : true)
 }
 

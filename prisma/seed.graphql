@@ -7,3 +7,57 @@ mutation {
         }
     ) { id }
 }
+
+mutation {
+  createMovie(data:{
+    name:"Harry Potter I"
+    time :120
+    rates:"A"
+    director :"Chris Columbus"
+  }){id,name}
+}
+
+mutation {
+  createMovie(data:{
+    name:"Harry Potter II"
+    time :121
+    rates:"B"
+    director :"Chris Columbus"
+  }){id,name}
+}
+
+mutation {
+  createMovie(data:{
+    name:"Harry Potter III"
+    time :121
+    rates:"B"
+    director :"Alfonso Cuaron"
+  }){id,name}
+}
+
+mutation {
+  createMovie(data:{
+    name:"Harry Potter IV"
+    time :121
+    rates:"B"
+    director :"Mike Newell"
+  }){id,name}
+}
+
+mutation {
+  createMovie(data:{
+    name:"Harry Potter V"
+    time :121
+    rates:"B"
+    director :"David Yates"
+  }){id,name}
+}
+
+mutation {
+  createMovie(data:{
+    name:"Harry Potter VI"
+    time :121
+    rates:"B"
+    director :"David Yates"
+  }){id,name}
+}
