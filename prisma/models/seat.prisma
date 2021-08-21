@@ -1,0 +1,8 @@
+type Seat {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  num : String!
+  available : Boolean! @default(value :true)
+}
+

@@ -1,0 +1,8 @@
+type Tags{
+
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  name : String!
+  desc : String!
+}

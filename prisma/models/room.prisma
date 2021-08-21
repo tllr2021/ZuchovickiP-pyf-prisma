@@ -1,0 +1,9 @@
+type Room {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  Seat : [Seat]
+  Movie : Movie! @relation(name:"Room-Movie")
+  available: Boolean! @default(value : true)
+}
+

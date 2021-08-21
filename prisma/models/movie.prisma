@@ -1,0 +1,11 @@
+type Movie{
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  name : String!
+  time: Int!
+  tags : [Tags] @relation("name Movie-tags")
+  rates : String!
+  director : String!
+
+}
