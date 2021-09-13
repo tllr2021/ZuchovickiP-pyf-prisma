@@ -2,6 +2,7 @@ type Room {
   id: ID! @id
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
+  name: String!
   Seat : [Seat] @relation(name:"RoomSeat" ,link: INLINE)
   Movie : Movie! @relation(name:"RoomMovie" ,link: INLINE)
   available: Boolean! @default(value : true)

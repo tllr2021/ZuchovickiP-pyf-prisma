@@ -8,7 +8,7 @@ mutation {
     ) { id }
 }
 
-mutation {
+Movie1 : mutation {
   createMovie(data:{
     name:"Harry Potter I"
     time :120
@@ -17,7 +17,7 @@ mutation {
   }){id,name}
 }
 
-mutation {
+Movie2 : mutation {
   createMovie(data:{
     name:"Harry Potter II"
     time :121
@@ -26,7 +26,7 @@ mutation {
   }){id,name}
 }
 
-mutation {
+Movie3 :mutation {
   createMovie(data:{
     name:"Harry Potter III"
     time :121
@@ -35,7 +35,7 @@ mutation {
   }){id,name}
 }
 
-mutation {
+Movie4 :mutation {
   createMovie(data:{
     name:"Harry Potter IV"
     time :121
@@ -44,7 +44,7 @@ mutation {
   }){id,name}
 }
 
-mutation {
+Movie5 :mutation {
   createMovie(data:{
     name:"Harry Potter V"
     time :121
@@ -53,7 +53,7 @@ mutation {
   }){id,name}
 }
 
-mutation {
+Movie5 :mutation {
   createMovie(data:{
     name:"Harry Potter VI"
     time :121

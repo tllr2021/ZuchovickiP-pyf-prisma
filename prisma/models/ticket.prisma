@@ -2,6 +2,7 @@ type Ticket {
   id: ID! @id
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
+  name : String!
   seats : [Seat] @relation(name:"TicketSeats",link: INLINE)
   movie : Movie! @relation(name:"TicketMovie",link: INLINE)
   room : Room! @relation(name:"TicketRoom",link: INLINE)
