@@ -7,7 +7,7 @@ export default {
     const password = await bcrypt.hash(pwd, 10);
     // return await ctx.prisma.updateUser({ data: { password }, where: { token_verify: token}});
   },
-  updateUser: (parent, args, ctx: Context) => ctx.prisma.updateUser(args.data),
+  updateUser: (parent, args, ctx: Context) => ctx.prisma.updateUser(args),
   createUser: (parent, args, ctx: Context) => ctx.prisma.createUser(args.data),
-  deleteUser: (parent, args, ctx: Context) => ctx.prisma.deleteUser(args.data),
+  deleteUser: (parent, args, ctx: Context) => ctx.prisma.deleteUser(args.where),
 };

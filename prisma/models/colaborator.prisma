@@ -1,0 +1,11 @@
+type Colaborator {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  name: String!
+  nomina: String! @unique
+  Cine : Cine! @relation(name:"ColabCine" ,link: INLINE)
+  Area : String!
+  available: Boolean! @default(value : true)
+}
+

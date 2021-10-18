@@ -15,6 +15,11 @@ const Room = mergeResolvers(resolversRoom);
 const resolversTicket = fileLoader(path.join(__dirname, "./ticket/**/*.ts"));
 const Ticket = mergeResolvers(resolversTicket);
 
+const resolversCine = fileLoader(path.join(__dirname, "./cine/**/*.ts"));
+const Cine = mergeResolvers(resolversCine);
+
+const resolversColaborator = fileLoader(path.join(__dirname, "./colaborator/**/*.ts"));
+const Colaborator = mergeResolvers(resolversColaborator);
 
 
 export default {
@@ -22,6 +27,8 @@ export default {
   Mutation,
   Subscription,
   Room,
-  Ticket
+  Ticket,
+  Cine,
+  Colaborator
   
 };

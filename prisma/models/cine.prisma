@@ -1,0 +1,8 @@
+type Cine {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  name: String!
+  Colaborator: Colaborator @relation(name:"CineColab" ,link: INLINE)
+}
+

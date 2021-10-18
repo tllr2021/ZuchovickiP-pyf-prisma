@@ -1,4 +1,4 @@
-endpoint: ${env:URL_BASE}/default/${env:ENVIROMENT}
+endpoint: ${env:URL_BASE}/pemiliano/${env:ENVIROMENT}
 databaseType: document
 datamodel:
   - ./models/user.prisma
@@ -6,6 +6,8 @@ datamodel:
   - ./models/room.prisma
   - ./models/seat.prisma
   - ./models/ticket.prisma
+  - ./models/cine.prisma
+  - ./models/colaborator.prisma
 
 generate:
   - generator: typescript-client
