@@ -1,0 +1,10 @@
+type OrdenDulceria{
+    id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  amount : Int!
+  items: [String]
+  Cine: Cine! @relation(name:"DulceriaCine" ,link: INLINE)
+  user: User @relation(name:"DulceriaUser",link:INLINE)
+
+}

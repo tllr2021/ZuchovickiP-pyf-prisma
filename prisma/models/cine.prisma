@@ -4,5 +4,8 @@ type Cine {
   updatedAt: DateTime! @updatedAt
   name: String!
   Colaborator: Colaborator @relation(name:"CineColab" ,link: INLINE)
+  room: [Room] @relation(name:"CineRoom" ,link: INLINE)
+  ingresosDulceria: Int @default(value:0)
+  ingresosTickets: Int @default(value:0)
 }
 

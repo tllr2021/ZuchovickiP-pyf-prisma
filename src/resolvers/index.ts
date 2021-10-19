@@ -22,6 +22,9 @@ const resolversColaborator = fileLoader(path.join(__dirname, "./colaborator/**/*
 const Colaborator = mergeResolvers(resolversColaborator);
 
 
+const resolversOrdenDulceria = fileLoader(path.join(__dirname, "./ordenDulceria/**/*.ts"));
+const OrdenDulceria = mergeResolvers(resolversOrdenDulceria);
+
 export default {
   Query,
   Mutation,
@@ -29,6 +32,7 @@ export default {
   Room,
   Ticket,
   Cine,
-  Colaborator
+  Colaborator,
+  OrdenDulceria
   
 };

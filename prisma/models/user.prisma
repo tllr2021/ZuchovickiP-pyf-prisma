@@ -5,8 +5,7 @@ type User {
   email: String! @unique
   password: String
   name: String!
-  points : Int!
+  points : Int
+  cardStatus: Boolean!@default(value:false)
   
-  birthday : DateTime!
-  member : Boolean!
 }

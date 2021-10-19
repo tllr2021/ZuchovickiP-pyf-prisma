@@ -4,11 +4,12 @@ datamodel:
   - ./models/user.prisma
   - ./models/movie.prisma
   - ./models/room.prisma
-  - ./models/seat.prisma
   - ./models/ticket.prisma
   - ./models/cine.prisma
   - ./models/colaborator.prisma
   - ./models/pagos.prisma
+  - ./models/ordenDulceria.prisma
+  
 
 generate:
   - generator: typescript-client

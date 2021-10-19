@@ -2,7 +2,7 @@ type Movie {
   id: ID! @id
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
-  name : String!
+  name : String! @unique
   time: Int!
   rates : String!
   director : String!

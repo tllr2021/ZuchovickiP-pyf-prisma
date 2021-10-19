@@ -3,7 +3,7 @@ type Ticket {
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   name : String!
-  seats : [Seat] @relation(name:"TicketSeats",link: INLINE)
+  seats : [String] 
   movie : Movie! @relation(name:"TicketMovie",link: INLINE)
   room : Room! @relation(name:"TicketRoom",link: INLINE)
   price : Float!
