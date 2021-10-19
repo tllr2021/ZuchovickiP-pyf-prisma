@@ -9,6 +9,7 @@ datamodel:
   - ./models/colaborator.prisma
   - ./models/pagos.prisma
   - ./models/ordenDulceria.prisma
+  - ./models/seat.prisma
   
 
 generate:

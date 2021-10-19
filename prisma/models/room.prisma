@@ -2,8 +2,8 @@ type Room {
   id: ID! @id
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
-  name: String! 
-  Movie : Movie! @relation(name:"RoomMovie" ,link: INLINE)
+  number: Int!@unique
+  Movie : Movie @relation(name:"RoomMovie" ,link: INLINE)
   available: Boolean! @default(value : true)
 }
 

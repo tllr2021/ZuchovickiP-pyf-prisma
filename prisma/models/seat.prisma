@@ -1,0 +1,11 @@
+type Seat {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  Room : Room! @relation(name:"SeatRoom" ,link: INLINE)
+  name: String!
+  available : Boolean!@default(value:true)
+
+
+
+}

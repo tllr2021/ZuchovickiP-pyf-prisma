@@ -3,5 +3,8 @@ import { Context } from "../../utils";
 export default {
 
     movie: (parent, args, ctx: Context) => ctx.prisma.ticket({id:parent.id}).movie(),
-    room: (parent, args, ctx: Context) => ctx.prisma.ticket({id:parent.id}).room(),
+    
+    seats: (parent, args, ctx: Context) => ctx.prisma.ticket({id:parent.id}).seats(),
+    cine: (parent, args, ctx: Context) => ctx.prisma.ticket({id:parent.id}).cine(),
+    user: (parent, args, ctx: Context) => ctx.prisma.ticket({id:parent.id}).user(),
 };

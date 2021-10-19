@@ -51,7 +51,7 @@ export default {
         data:{points:totalPoints}
     })
         
-    console.log("Else")
+    
     return ctx.prisma.createOrdenDulceria(args.data)
 
     }

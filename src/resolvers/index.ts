@@ -25,6 +25,9 @@ const Colaborator = mergeResolvers(resolversColaborator);
 const resolversOrdenDulceria = fileLoader(path.join(__dirname, "./ordenDulceria/**/*.ts"));
 const OrdenDulceria = mergeResolvers(resolversOrdenDulceria);
 
+const resolversSeat = fileLoader(path.join(__dirname, "./seat/**/*.ts"));
+const Seat = mergeResolvers(resolversSeat);
+
 export default {
   Query,
   Mutation,
@@ -33,6 +36,7 @@ export default {
   Ticket,
   Cine,
   Colaborator,
-  OrdenDulceria
+  OrdenDulceria,
+  Seat
   
 };
