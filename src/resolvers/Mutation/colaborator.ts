@@ -30,4 +30,36 @@ export default {
 
     
   deleteColaborator: (parent, args, ctx: Context) => ctx.prisma.deleteColaborator(args.where),
+
+
+   nominaPay:async(parent,args,ctx:Context)=>{
+
+    const dias = args.dias;
+    const nomina = args.where.nomina;
+
+    //Salario Promedio de Empleado General de Cine en Mexico 2021 => $173 por dia
+    const salario = dias*173;
+
+    const update = await ctx.prisma.updateColaborator(
+        {
+        where:{nomina:args.where.nomina},
+        data:{pago:salario}
+        }
+    )
+
+    const createPago = await ctx.prisma.createPago(
+        {
+            nomina:nomina,
+            pago:salario
+    }   
+    )
+
+    return {
+        salario:salario,
+        colaborator:update
+    };
+
+    
+  },
+
 };

@@ -1,0 +1,9 @@
+type Pago {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  nomina: String! 
+  pago: Int!
+
+}
+

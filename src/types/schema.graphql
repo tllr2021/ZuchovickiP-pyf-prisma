@@ -7,7 +7,10 @@ type Mutation {
   setPwd(data: AuthPwd!): User!
   signup(email: String!, password: String!, name: String!): AuthPayload!
   login(email: String!, password: String!): AuthPayload!
+  nominaPay(dias:Int!,where:ColaboratorWhereUniqueInput!):NomPay!
 }
+  
+  
 
 type Subscription {
   feedSubscription: User
@@ -16,4 +19,11 @@ type Subscription {
 type AuthPayload {
   token: String!
   user: User!
+}
+
+
+type NomPay{
+
+  salario: Int!
+  colaborator:Colaborator!
 }

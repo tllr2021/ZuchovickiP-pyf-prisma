@@ -6,6 +6,8 @@ type Colaborator {
   nomina: String! @unique
   Cine : Cine! @relation(name:"ColabCine" ,link: INLINE)
   Area : String!
+  dias: Int
+  pago: Int
   available: Boolean! @default(value : true)
 }
 
