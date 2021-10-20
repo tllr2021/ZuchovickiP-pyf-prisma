@@ -42,6 +42,37 @@ export default {
 
     const currentPoints = await ctx.prisma.user({id:user}).points();
 
+
+    //Evaluación de Pago con Puntos y en caso de no tner Puntos suficientes Lanzar error
+
+    if (args.data.pagoPuntos==true) {
+        
+         var saldo = currentPoints - amount;
+        if (saldo<0) {
+            saldo = saldo*(-1)
+
+            args.data.price=saldo
+            const pointsUpdate = await ctx.prisma.updateUser({
+
+                where:{id:user},
+                data:{points:0}
+            })
+            return ctx.prisma.createTicket(args.data)
+        }
+        else{
+            args.data.price=0
+            const pointsUpdate = await ctx.prisma.updateUser({
+
+                where:{id:user},
+                data:{points:saldo}
+            })
+            
+            return ctx.prisma.createTicket(args.data)
+        }
+
+    }
+
+
     const totalPoints = currentPoints+newAmount;
 
     const pointsUpdate = await ctx.prisma.updateUser({

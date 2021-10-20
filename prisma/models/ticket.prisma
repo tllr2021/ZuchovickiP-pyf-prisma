@@ -8,6 +8,7 @@ type Ticket {
   cine: Cine! @relation(name:"TickerCine",link: INLINE)
   user: User @relation(name:"TicketUser",link: INLINE)
   price : Int!
+  pagoPuntos: Boolean@default(value:false)
 
 
 }

@@ -12,6 +12,9 @@ export const isAuthenticated = rule({ cache: "contextual" })(
         "ERR_NOT_LOGED"
       );
     }
+    else{
+      console.log("authenticated")
+    }
     return true;
   }
 );
