@@ -1,25 +1,33 @@
 import { shield, allow, deny, or, and } from "graphql-shield";
+import { RuleAnd, RuleChain } from "graphql-shield/dist/rules";
 const { ApolloError, } = require("apollo-server");
-import { isAuthenticated } from "./polices";
+import { isAuthenticated ,isAuthenticatedAdmin } from "./polices";
 
 
 export const permissions = shield(
   {
     Query: {
-      "*": allow,
+      "*":or(isAuthenticated,isAuthenticatedAdmin)  ,
+      
     },
+    
     Mutation: {
-      "*": allow,
+      "*":or(isAuthenticated,isAuthenticatedAdmin),
+      signup: allow,
+      login: allow,
+      loginAdmin: allow,
+      createColaborator: allow,
+
     },
-    Subscription: {
-      "*": allow,
-    },
-    User: {
-      "*": allow,
-    },
+  
+    
+    
+    
+    
     
   },
   {
+    
     allowExternalErrors: true,
     debug: true,
     fallbackError: (thrownThing, parent, args, context, info) => {

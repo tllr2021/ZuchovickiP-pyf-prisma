@@ -1,24 +1,27 @@
 input AuthPwd {
   pwd: String!
-  token: String!
+  newPwd: String!
+  email: String!
 }
 
 type Mutation {
   setPwd(data: AuthPwd!): User!
+  nominaPay(dias:Int!,where:ColaboratorWhereUniqueInput!):NomPay!
+  changeTarjetaStatus(status:Boolean!,where:UserWhereUniqueInput!):TarjetaStatus!
   signup(email: String!, password: String!, name: String!): AuthPayload!
   login(email: String!, password: String!): AuthPayload!
-  nominaPay(dias:Int!,where:ColaboratorWhereUniqueInput!):NomPay!
+  loginAdmin(nomina:String!,password:String!):AuthPayloadAdmin
 }
   
-  
-
-type Subscription {
-  feedSubscription: User
-}
 
 type AuthPayload {
   token: String!
-  user: User!
+  user: User
+}
+
+type AuthPayloadAdmin {
+  token: String!
+  colaborator: Colaborator
 }
 
 
@@ -26,4 +29,11 @@ type NomPay{
 
   salario: Int!
   colaborator:Colaborator!
+}
+
+type TarjetaStatus{
+
+  status: Int!
+  id:String!
+  
 }

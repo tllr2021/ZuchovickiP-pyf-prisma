@@ -1,5 +1,5 @@
 import { rule } from "graphql-shield";
-import { getUser } from '../utils'
+import { getUser , getColaborator } from '../utils'
 const { ApolloError } = require("apollo-server");
 
 
@@ -13,7 +13,23 @@ export const isAuthenticated = rule({ cache: "contextual" })(
       );
     }
     else{
-      console.log("authenticated")
+      console.log("User: "+user.id+" is authenticated")
+    }
+    return true;
+  }
+);
+
+export const isAuthenticatedAdmin = rule({ cache: "contextual" })(
+  async (parent, args, ctx, info) => {
+    const admin = await getColaborator(ctx);
+    if (admin == null) {
+      return new ApolloError(
+        "Admin not loged",
+        "ERR_NOT_LOGED"
+      );
+    }
+    else{
+      console.log("Admin: "+admin.nomina+" is authenticated")
     }
     return true;
   }

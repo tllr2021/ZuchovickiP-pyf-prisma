@@ -1,4 +1,5 @@
-
+import * as bcrypt from 'bcryptjs'
+import * as jwt from 'jsonwebtoken'
 import { Context } from "../../utils";
 
 export default {
@@ -12,7 +13,7 @@ export default {
 
 
 
-  createColaborator: (parent, args, ctx: Context) => {
+  createColaborator: async(parent, args, ctx: Context) => {
       
     const nom = args.data.nomina;
     if (isNaN(nom)) {
@@ -20,6 +21,9 @@ export default {
     throw new Error("Nomina debe unicamente numerica");
     }
     if (nom.length==5)  {
+
+      const password = await bcrypt.hash(args.data.password, 10)
+      args.data.password=password;
         return ctx.prisma.createColaborator(args.data)
     }
     throw new Error("Nomina debe ser 5 numeros unicamente");
@@ -32,7 +36,7 @@ export default {
   deleteColaborator: (parent, args, ctx: Context) => ctx.prisma.deleteColaborator(args.where),
 
 
-   nominaPay:async(parent,args,ctx:Context)=>{
+  nominaPay:async(parent,args,ctx:Context)=>{
 
     const dias = args.dias;
     const nomina = args.where.nomina;
@@ -62,4 +66,29 @@ export default {
     
   },
 
+
+  changeTarjetaStatus:async(parent,args,ctx:Context)=>{
+    const status = args.status;
+    
+
+    //Salario Promedio de Empleado General de Cine en Mexico 2021 => $173 por dia
+    
+
+    const update = await ctx.prisma.updateUser(
+        {
+        where:{id:args.where.id},
+        data:{cardStatus:status}
+        }
+    )
+
+    
+
+    return {
+        status:status,
+        id:args.where.id,
+    };
+
+  },
+
+ 
 };

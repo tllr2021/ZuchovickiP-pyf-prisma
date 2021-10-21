@@ -4,6 +4,7 @@ type Colaborator {
   updatedAt: DateTime! @updatedAt
   name: String!
   nomina: String! @unique
+  password: String!
   Cine : Cine! @relation(name:"ColabCine" ,link: INLINE)
   Area : String!
   dias: Int

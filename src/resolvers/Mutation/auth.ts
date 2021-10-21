@@ -35,4 +35,29 @@ export default {
       return error;
     }
   },
+
+
+  async loginAdmin(parent, args, ctx: Context) {
+    try {
+      const admin = await ctx.prisma.colaborator({ nomina:args.nomina });
+      if (!admin) {
+        return new Error('Invalid email or password')
+      }
+      const valid = await bcrypt.compare(args.password, admin.password);
+      if (!valid) {
+        // throw new Error(`Invalid email or password`);
+        return new Error('Invalid email or password')
+      }
+      return {
+        token: jwt.sign({ adminId: admin.id }, process.env.APP_SECRET, {
+          expiresIn: "10h",
+        }),
+        colaborator:admin,
+      };
+    } catch (error) {
+      return error;
+    }
+  },
+
+  
 }

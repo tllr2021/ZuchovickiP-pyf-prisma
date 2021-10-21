@@ -33,3 +33,28 @@ export async function getUser(ctx: ContextParameters) {
     throw new Error(error);
   }
 }
+
+export function getColaboratorId(ctx: ContextParameters): ID_Input {
+  const Authorization = ctx.request.get('AuthorizationAdmin')
+  try {
+    if (Authorization) {
+      const token = Authorization.replace("Bearer ", "");
+      if (!token) return null;
+      const { adminId } = jwt.verify(token, process.env.APP_SECRET) as { adminId: string; };
+      return adminId;
+    }
+    return null;
+  } catch (error) {
+    throw new Error(error);
+  }
+}
+
+export async function getColaborator(ctx: ContextParameters) {
+  try {
+    const adminId = getColaboratorId(ctx);
+    if (!adminId) return null;
+    return await prisma.colaborator({ id: adminId });
+  } catch (error) {
+    throw new Error(error);
+  }
+}

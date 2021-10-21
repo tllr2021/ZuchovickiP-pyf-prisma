@@ -1,4 +1,4 @@
-import { Subscription } from './Subscription'
+
 
 const path = require("path");
 const { mergeResolvers, fileLoader } = require("merge-graphql-schemas");
@@ -28,15 +28,17 @@ const OrdenDulceria = mergeResolvers(resolversOrdenDulceria);
 const resolversSeat = fileLoader(path.join(__dirname, "./seat/**/*.ts"));
 const Seat = mergeResolvers(resolversSeat);
 
+
+
 export default {
   Query,
   Mutation,
-  Subscription,
   Room,
   Ticket,
   Cine,
   Colaborator,
   OrdenDulceria,
-  Seat
+  Seat,
+  
   
 };
