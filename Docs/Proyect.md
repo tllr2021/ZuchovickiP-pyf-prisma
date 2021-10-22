@@ -202,25 +202,191 @@ mutation{
 ~~~
 
 ### Un colaborador tiene un cine asignado
+
+~~~graphql
+{
+  colaborators{
+    nomina
+    Cine{
+      id
+      name
+    }
+  }
+}
+~~~
+
 ### Un cine tiene colaboradores asignados
+
+~~~graphql
+mutation{
+  updateCine(
+    data:{
+      Colaborator:{connect:{nomina:"12345"}}
+    }
+    where:{id:"61733b5aa7b11b000814cd04"}
+  ){name Colaborator{nomina}}
+}
+~~~
+
 ### Un cine puede consultar las finanzas
+
+~~~graphql
+{cines{
+  
+  ingresosTickets
+  ingresosDulceria
+}}
+~~~
+
 ### Se pueden cancelar tarjetas de lealtad (eg. Tarjeta Fan)
+
+~~~graphql
+mutation{
+  changeTarjetaStatus(
+    status:false
+    where:{id:"61724756a7b11b000814ccee"}
+  ){status id}
+}
+~~~
+
 ### Un colaborador puede realizar login
-### Se pueden registrar puntos en la compra en dulceria o boletos
+~~~graphql
+mutation{
+  loginAdmin(
+    nomina:"12345"
+    password:"12345"
+    
+  ){token}
+}
+~~~
 
 
 ## Usuario
 
 ### Un usuario se puede registar
-### Un usuario puede comprar boletos para una pelicula
-### Un usuario puede escoger los asientos para su pelicula
+~~~graphql
+mutation{
+  signup(
+    email:"Examples@mail.com"
+    password:"12345"
+    name:"Example"
+  ){token user{email}}
+}
+~~~
+
+### Un usuario puede comprar boletos para una pelicula y escoger los asientos para su pelicula
+
+~~~graphql
+mutation{
+  createTicket(
+    data:{
+      seats:{connect:[{id:"617343fca7b11b000814cd0f"},{id:"61734580a7b11b000814cd10"}]}
+      movie:{connect:{name:"Harry Potter I"}}
+      cine:{connect:{id:"61733b5aa7b11b000814cd04"}}
+      price:42
+    }
+  ){id movie{name} seats{name} cine{name} price}
+}
+~~~
+
 ### En la compra de boletos se asignan puntos
+
+~~~graphql
+mutation{
+  updateUser(
+    data:{cardStatus:true}
+    where:{id:"61733a33a7b11b000814cd03"}
+  ){id cardStatus}
+}
+
+mutation{
+  createTicket(
+    data:{
+      seats:{connect:[{id:"617343fca7b11b000814cd0f"},{id:"61734580a7b11b000814cd10"}]}
+      movie:{connect:{name:"Harry Potter I"}}
+      cine:{connect:{id:"61733b5aa7b11b000814cd04"}}
+      price:42
+      user:{connect:{id:"61733a33a7b11b000814cd03"}}
+    }
+  ){id movie{name} seats{name} cine{name} price user{points}}
+}
+~~~
+
 ### En la compra de boletos se pueden utilizar puntos
+
+~~~graphql
+mutation{
+  createTicket(
+    data:{
+      seats:{connect:[{id:"617343fca7b11b000814cd0f"},{id:"61734580a7b11b000814cd10"}]}
+      movie:{connect:{name:"Harry Potter I"}}
+      cine:{connect:{id:"61733b5aa7b11b000814cd04"}}
+      price:42
+      user:{connect:{id:"61733a33a7b11b000814cd03"}}
+      pagoPuntos:true
+    }
+  ){id movie{name} seats{name} cine{name} price user{points}}
+}
+~~~
+
 ### Se puenden consultar los puntos de un usuario
+
+~~~graphql
+{user(
+  where:{email:"Examples@mail.com"}
+){name points}
+}
+~~~
+
 ### Un usuario tiene una tarjeta donde se registran sus puntos
+
+~~~graphql
+{users{
+  id
+  name
+  cardStatus
+  points
+}
+
+}
+~~~
+
 ### Un usuario puede actualizar su contraseña
+
+~~~graphql
+mutation{
+  setPwd(
+    data:{
+      pwd:"12345"
+      newPwd:"123456"
+      email:"Examples@mail.com"
+    }
+  ){updatedAt password}
+}
+~~~
+
 ### Un usuario puede realizar login
+~~~graphql
+mutation{
+  login(
+    email:"Examples@mail.com"
+    password:"123456"
+  ){token}
+}
+~~~
 ### Un usuario puede comprar en dulceria se registra su orden y le registra puntos si proporciona su tarjeta de lealtad
 
+~~~graphql
+mutation{
+  createOrdenDulceria(
+    data:{
+      amount:80
+      items:{set:["Example1","Example2"]}
+      Cine:{connect:{id:"61733b5aa7b11b000814cd04"}}
+      user:{connect:{id:"61733a33a7b11b000814cd03"}}
+    }
+  ){amount}
+}
+~~~
 
 
