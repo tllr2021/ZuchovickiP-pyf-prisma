@@ -1,7 +1,7 @@
 # TODO: Remove references to InitialConfig branch and check if the actions/checkout is automatically
 # including the contents of the appropiate branch
 
-name: CinemasPremiereCD
+name: CDdeploy
 on:
   push:
     branches:
@@ -10,6 +10,7 @@ on:
 env:
   PRISMA_MANAGEMENT_API_SECRET: ${{ secrets.PRISMA_MANAGEMENT_API_SECRET }}
   URL_BASE: http://147.182.187.121:4466/pemiliano/production
+  PRISMA_SECRET:  ${{ secrets.PRISMA_SECRET }}
 jobs:
   prisma_deploy:
     name: Run Prisma Deploy
