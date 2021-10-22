@@ -9,7 +9,7 @@ export default {
     const password = await bcrypt.hash(args.password, 10)
     const user = await ctx.prisma.createUser({ ...args, password })
     return {
-      token: jwt.sign({ userId: user.id }, process.env.APP_SECRET, {expiresIn: "10h"}),
+      token: jwt.sign({ userId: user.id }, process.env.APP_SECRET),
       user,
     }
   },
@@ -26,9 +26,7 @@ export default {
         return new ApolloError('Invalid email or password', 'ERR_AUTH')
       }
       return {
-        token: jwt.sign({ userId: user.id }, process.env.APP_SECRET, {
-          expiresIn: "10h",
-        }),
+        token: jwt.sign({ userId: user.id }, process.env.APP_SECRET, ),
         user,
       };
     } catch (error) {
@@ -49,9 +47,7 @@ export default {
         return new Error('Invalid email or password')
       }
       return {
-        token: jwt.sign({ adminId: admin.id }, process.env.APP_SECRET, {
-          expiresIn: "10h",
-        }),
+        token: jwt.sign({ adminId: admin.id }, process.env.APP_SECRET, ),
         colaborator:admin,
       };
     } catch (error) {

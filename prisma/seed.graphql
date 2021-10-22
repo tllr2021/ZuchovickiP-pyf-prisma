@@ -9,4 +9,24 @@ mutation {
   }){id,name}
 }
 
+mutation {
+    
 
+    movie1:createMovie(data:{
+    name:"Harry Potter II"
+    time :120
+    rates:"A"
+    director :"Chris Columbus"
+  }){id,name}
+}
+
+
+
+mutation {
+
+    Cine1:createCine(
+    data:{
+      name:"Example"
+    }
+  ){id}
+}

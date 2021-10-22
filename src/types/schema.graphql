@@ -33,7 +33,7 @@ type NomPay{
 
 type TarjetaStatus{
 
-  status: Int!
+  status: Boolean!
   id:String!
   
 }
