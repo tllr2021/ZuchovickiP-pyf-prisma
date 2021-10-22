@@ -33,7 +33,7 @@ export default {
 },
 
     
-  deleteColaborator: (parent, args, ctx: Context) => ctx.prisma.deleteColaborator(args.where),
+
 
 
   nominaPay:async(parent,args,ctx:Context)=>{

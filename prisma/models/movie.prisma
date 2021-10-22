@@ -6,5 +6,6 @@ type Movie {
   time: Int!
   rates : String!
   director : String!
+  available: Boolean @default(value : true)
 
 }

@@ -5,5 +5,5 @@ export default {
  
   updateMovie: (parent, args, ctx: Context) => ctx.prisma.updateMovie(args),
   createMovie: (parent, args, ctx: Context) => ctx.prisma.createMovie(args.data),
-  deleteMovie: (parent, args, ctx: Context) => ctx.prisma.deleteMovie(args.where),
+  
 };

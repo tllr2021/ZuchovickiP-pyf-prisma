@@ -90,5 +90,5 @@ export default {
   
   
   },
-  deleteTicket: (parent, args, ctx: Context) => ctx.prisma.deleteTicket(args.where),
+  
 };

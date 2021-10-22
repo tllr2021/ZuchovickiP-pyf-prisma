@@ -23,5 +23,5 @@ export default {
   },
   updateUser: (parent, args, ctx: Context) => ctx.prisma.updateUser(args),
   createUser: (parent, args, ctx: Context) => ctx.prisma.createUser(args.data),
-  deleteUser: (parent, args, ctx: Context) => ctx.prisma.deleteUser(args.where),
+  
 };

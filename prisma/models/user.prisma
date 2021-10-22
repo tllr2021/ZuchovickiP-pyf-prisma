@@ -7,5 +7,6 @@ type User {
   name: String!
   points : Int
   cardStatus: Boolean!@default(value:false)
+  available: Boolean @default(value : true)
   
 }

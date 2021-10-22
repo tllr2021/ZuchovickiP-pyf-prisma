@@ -57,5 +57,5 @@ export default {
     }
 }
 },
-  deleteOrdenDulceria: (parent, args, ctx: Context) => ctx.prisma.deleteOrdenDulceria(args.where),
+  
 };

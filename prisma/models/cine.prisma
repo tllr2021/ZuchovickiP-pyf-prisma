@@ -7,5 +7,6 @@ type Cine {
   room: [Room] @relation(name:"CineRoom" ,link: INLINE)
   ingresosDulceria: Int @default(value:0)
   ingresosTickets: Int @default(value:0)
+  available: Boolean @default(value:true)
 }
 
