@@ -9,7 +9,7 @@ on:
       - 'develop'
 env:
   PRISMA_MANAGEMENT_API_SECRET: ${{ secrets.PRISMA_MANAGEMENT_API_SECRET}}
-  URL_BASE: http://147.182.187.121:4466/pemiliano/production
+  URL_BASE: http://147.182.187.121:4466
   PRISMA_SECRET:  ${{ secrets.PRISMA_SECRET }}
 jobs:
   prisma_deploy:
