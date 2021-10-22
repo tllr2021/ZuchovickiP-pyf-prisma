@@ -19,7 +19,7 @@ jobs:
         if: ${{github.ref == 'refs/heads/main'}}
         run: echo "ENVIRONMENT=production" >> $GITHUB_ENV
       - name: Set ENVIRONMENT value if branch is develop
-        if: ${{github.ref == 'refs/heads/dev'}}
+        if: ${{github.ref == 'refs/heads/develop'}}
         run: echo "ENVIRONMENT=development" >> $GITHUB_ENV
       - name: Include repo contents in workspace
         uses: actions/checkout@v2
