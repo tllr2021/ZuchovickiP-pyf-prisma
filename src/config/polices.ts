@@ -1,5 +1,5 @@
-import { rule } from "graphql-shield";
-import { getUser , getColaborator } from '../utils'
+const { rule } =require("graphql-shield");
+const { getUser , getColaborator } =require( '../utils');
 const { ApolloError } = require("apollo-server");
 
 

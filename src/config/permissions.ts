@@ -1,7 +1,7 @@
-import { shield, allow, deny, or, and } from "graphql-shield";
+const { shield, allow, deny, or, and } =require("graphql-shield");
 import { RuleAnd, RuleChain } from "graphql-shield/dist/rules";
 const { ApolloError, } = require("apollo-server");
-import { isAuthenticated ,isAuthenticatedAdmin } from "./polices";
+const { isAuthenticated ,isAuthenticatedAdmin } = require("./polices");
 
 
 export const permissions = shield(
