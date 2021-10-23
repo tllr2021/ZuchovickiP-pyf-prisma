@@ -7,6 +7,13 @@ Api de Prisma que permite:
     - Crear y Modificar Colaboradores
     - Administrar Peticiones de Taquillas y Dulcerias
 
+## Commandos de Docker
+
+~~~sh
+docker pull zuchovicki/prisma_mongo
+
+docker run -p 4000:4000 zuchovicki/prisma_mongo
+~~~
 ## Modelos
 
  Todos los modelos tienen sus respectivos Create y Update para crear y modificar los modelos
@@ -375,7 +382,7 @@ mutation{
 }
 ~~~
 ### Un usuario puede comprar en dulceria se registra su orden y le registra puntos si proporciona su tarjeta de lealtad
-
+#### Es necesario que "CardStatus" sea true antes de registrar puntos
 ~~~graphql
 mutation{
   createOrdenDulceria(
