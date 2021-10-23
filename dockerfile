@@ -12,6 +12,8 @@ RUN yarn install
 
 ENV PORT=4000
 
+ENV APP_SECRET="jwtsecret123"
+
 EXPOSE ${PORT}
 
 CMD [ "yarn","start" ]
