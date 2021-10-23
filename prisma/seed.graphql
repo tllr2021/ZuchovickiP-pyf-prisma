@@ -30,3 +30,12 @@ mutation {
     }
   ){id}
 }
+
+mutation{
+  Room1:
+  createRoom(
+    data:{
+      number:1
+    }
+  ){id number}
+}
